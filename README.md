@@ -1,14 +1,16 @@
 # Used Libraries
 
 
-  -Retrofit
+  -[Retrofit](https://square.github.io/retrofit/#:~:text=Retrofit%20Configuration,are%20turned%20into%20callable%20objects.)
   
-  -Room
+  -[Room](https://developer.android.com/training/data-storage/room)
   
-  -Dagger-Hilt
+  -[Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
   
-  -RXjava
+  -[RXjava](https://github.com/ReactiveX/RxJava)
   
-  -MVVM
+  -[MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel)
   
-  -DataBinding
+  -[RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+  
+  -[DataBinding](https://developer.android.com/topic/libraries/data-binding)
