@@ -3,15 +3,20 @@ package com.example.pokemonapp.viewmodels;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.hilt.lifecycle.ViewModelInject;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokemonapp.model.Pokemon;
 import com.example.pokemonapp.model.PokemonResponse;
 import com.example.pokemonapp.repository.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.functions.Function;
@@ -23,6 +28,14 @@ public class PokemonViewModel extends ViewModel {
     private Repository repository;
 
     MutableLiveData<ArrayList<Pokemon>> pokemonList = new MutableLiveData<>();
+
+
+    // this live data to shown list in fav screen
+    LiveData<List<Pokemon>> pokeomnFav = null;
+
+    public LiveData<List<Pokemon>> getPokeomnFav() {
+        return pokeomnFav;
+    }
 
     @ViewModelInject // this from dagger hilt
     public PokemonViewModel(Repository repository) {
@@ -56,7 +69,7 @@ public class PokemonViewModel extends ViewModel {
                             String[] pokemonIndex = url.split("/");
 
                             // هنا علشان يضيف بس اخر حاجة موجودة في ال url اللي هي الرقم
-                            pokemon.setUrl("https://pokeres.bastionbot.org/images/pokemon/"
+                            pokemon.setUrl("https://pokeres.bastionbot.org/images/pokemon"
                                     + pokemonIndex[pokemonIndex.length - 1] + ".png");
                         }
                         return list;
@@ -70,5 +83,19 @@ public class PokemonViewModel extends ViewModel {
 
         }
     }
+
+
+    public void insertPokemon(Pokemon pokemon) {
+        repository.insertPokemon(pokemon);
+    }
+
+    public void deletePokemon(String pokemonName) {
+        repository.deletePokemon(pokemonName);
+    }
+
+    public void getFavPokemon() {
+        pokeomnFav = repository.getAllPokemon();
+    }
+
 
 }

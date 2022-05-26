@@ -3,7 +3,6 @@ package com.example.pokemonapp.db;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -25,5 +24,5 @@ public interface PokemonDao {
 
     // fun to getAll pokemon
     @Query("select * from fav_table")
-    LiveData<List<Pokemon>> getPokemons(); // this live data because we will return a live data
+   public LiveData<List<Pokemon>> getPokemons(); // this live data because we will return a live data
 }

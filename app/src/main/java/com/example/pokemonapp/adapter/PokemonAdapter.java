@@ -49,6 +49,11 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         notifyDataSetChanged();
     }
 
+    // this fun to get position of pokemon
+    public Pokemon getPokemonPosition(int position) {
+        return mList.get(position);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView pokemonImage;
