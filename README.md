@@ -1,8 +1,14 @@
-# pokemon_app
-These components have been used in this app:
+# Used Libraries
+
+
   -Retrofit
+  
   -Room
+  
   -Dagger-Hilt
+  
   -RXjava
+  
   -MVVM
+  
   -DataBinding
